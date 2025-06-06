@@ -1,0 +1,23 @@
+plugins {
+    id 'io.nextflow.nextflow-plugin' version '0.0.1-alpha4'
+}
+
+version = '0.1.0'
+
+nextflowPlugin {
+    nextflowVersion = '24.10.0'
+
+    provider = 'nexomis'
+    className = 'nexomis.plugin.NfNexomisPlugin'
+    extensionPoints = [
+        'nexomis.plugin.NfNexomisExtension',
+        'nexomis.plugin.NfNexomisFactory'
+    ]
+
+    publishing {
+        registry {
+            url = 'https://nf-plugins-registry.dev-tower.net/api'
+            authToken = project.findProperty('pluginRegistry.accessToken')
+        }
+    }
+}
