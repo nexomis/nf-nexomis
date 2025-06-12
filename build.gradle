@@ -15,9 +15,11 @@ nextflowPlugin {
     ]
 
     publishing {
-        registry {
-            url = 'https://nf-plugins-registry.dev-tower.net/api'
-            authToken = project.findProperty('pluginRegistry.accessToken')
+        github {
+            repository = 'jfouret/nf-nexomis'
+            userName = project.findProperty('github_username')
+            authToken = project.findProperty('github_access_token')
+            email = project.findProperty('github_commit_email')
         }
     }
 }
